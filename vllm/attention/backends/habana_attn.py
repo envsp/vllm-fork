@@ -192,7 +192,7 @@ class HabanaAttentionImpl(AttentionImpl, torch.nn.Module):
                 attn_bias = attn_metadata.attn_bias
                 if self.alibi_slopes is not None and \
                     self.position_bias is not None:
-                    attn_bias.add_(self.position_bias[:, :,
+                    attn_bias.add(self.position_bias[:, :,
                                                       -attn_bias.size(2):,
                                                       -attn_bias.size(3):])
             else:
